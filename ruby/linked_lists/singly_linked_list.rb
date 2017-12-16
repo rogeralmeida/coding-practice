@@ -39,20 +39,8 @@ class SinglyLinkedList
     if @head.nil?
       push_front value
     else
-      if @head.next_node.nil?
-        @head.next_node = ListNode.new value
-        @size += 1
-      else
-        node = @head.next_node
-        loop do
-          if node.next_node.nil?
-            node.next_node = ListNode.new value
-            @size += 1
-            break
-          end
-          node = node.next_node
-        end
-      end
+      last_node.next_node = ListNode.new value 
+      @size += 1
     end
   end
 
