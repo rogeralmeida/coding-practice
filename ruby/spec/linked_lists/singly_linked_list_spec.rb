@@ -19,6 +19,16 @@ RSpec.describe "SinglyLinkedList" do
     expect(@list.back).to eq(5)
   end
 
+  it "should remove a item from the front" do
+    @list.push_back(9)
+    @list.push_back(1)
+    @list.push_back(5)
+    expect(@list.size).to eq(3)
+    expect(@list.pop_front).to eq(9)
+    expect(@list.size).to eq(2)
+  end
+  
+
   it "should should pop an item at back" do
     @list.push_back(9)
     @list.push_back(1)

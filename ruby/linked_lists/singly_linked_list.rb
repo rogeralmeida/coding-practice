@@ -57,7 +57,10 @@ class SinglyLinkedList
   end
 
   def pop_front
-
+    value = @head.value
+    @head = @head.next_node
+    @size -= 1
+    value
   end
 
   def pop_back
