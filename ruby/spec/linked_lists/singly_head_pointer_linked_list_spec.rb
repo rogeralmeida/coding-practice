@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
 require_relative '../../linked_lists/singly_head_pointer_linked_list'
-[SinglyHeadPointerLinkedList].each do |clazz|
+require_relative '../../linked_lists/singly_head_and_tail_pointer_linked_list'
+
+[SinglyHeadPointerLinkedList, SinglyHeadAndTailPointerLinkedList].each do |clazz|
   RSpec.describe "Linked list class #{clazz}" do
     before(:each) do
       @list = clazz.new
