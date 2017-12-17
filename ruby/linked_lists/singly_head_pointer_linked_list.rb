@@ -126,12 +126,7 @@ class SinglyHeadPointerLinkedList
   private
 
   def last_node
-    node = @head
-    loop do
-      break if node.nil? || node.next_node.nil?
-      node = node.next_node
-    end
-    node
+    node_at @size - 1
   end
 
   def node_at index
