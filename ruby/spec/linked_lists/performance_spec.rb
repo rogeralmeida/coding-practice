@@ -9,12 +9,11 @@ RSpec.describe 'Performance for Linked Lists' do
     head = SinglyHeadPointerLinkedList.new
     tail = SinglyHeadAndTailPointerLinkedList.new
     Benchmark.bm do |bm|
-      bm.report('Inserting a million items in both lists') do
-        10000.times do
-          number = Random.rand(10000000)
-          head.push_back number
-          tail.push_back number
-        end
+      bm.report('Inserting a million items in head list') do
+        10000.times { head.push_back Random.rand(10000000) }
+      end
+      bm.report('Inserting a million items in tail list') do
+        10000.times { tail.push_back Random.rand(10000000) }
       end
       bm.report('Reversing head list'){ head.reverse }
       bm.report('Reversing tail list'){ tail.reverse }
