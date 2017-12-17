@@ -16,7 +16,7 @@
 # remove_value(value) - removes the first item in the list with this value
 require_relative './list_node'
 
-class SinglyLinkedList
+class SinglyHeadPointerLinkedList
   attr_reader :size
 
   def initialize
@@ -100,7 +100,7 @@ class SinglyLinkedList
   end
 
   def reverse
-    reversed = SinglyLinkedList.new
+    reversed = SinglyHeadPointerLinkedList.new
     node = @head
     while !node.nil? do
       reversed.push_front node.value

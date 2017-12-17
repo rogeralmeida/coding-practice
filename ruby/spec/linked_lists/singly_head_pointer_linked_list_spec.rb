@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-require_relative '../../linked_lists/singly_linked_list'
-RSpec.describe 'SinglyLinkedList' do
+require_relative '../../linked_lists/singly_head_pointer_linked_list'
+RSpec.describe 'SinglyHeadPointerLinkedList' do
   before(:each) do
-    @list = SinglyLinkedList.new
+    @list = SinglyHeadPointerLinkedList.new
   end
 
   it 'append a item at front' do
