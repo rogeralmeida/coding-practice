@@ -126,12 +126,9 @@ class SinglyLinkedList
   private
 
   def last_node
-    if @head.nil?
-      raise "Cannot find the last node when the list is empty"
-    end
     node = @head
     loop do
-      break if node.next_node.nil?
+      break if node.nil? || node.next_node.nil?
       node = node.next_node
     end
     node

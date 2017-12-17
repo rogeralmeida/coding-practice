@@ -30,6 +30,14 @@ RSpec.describe 'SinglyLinkedList' do
     expect(@list.size).to eq(2)
   end
 
+  it 'should insert at the front if I specify zero as the index' do
+    @list.push_back(9)
+    @list.push_back(1)
+    @list.push_back(5)
+    @list.insert 0, 99
+    expect(@list.front).to eq(99)
+  end
+
 
   it 'should should pop an item at back' do
     @list.push_back(9)
