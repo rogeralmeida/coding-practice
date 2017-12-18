@@ -19,6 +19,8 @@ RSpec.describe 'Performance for Linked Lists' do
       bm.report('Reversing tail list'){ tail.reverse }
       bm.report('head.append'){head.push_back(99)}
       bm.report('tail.append'){tail.push_back(99)}
+      bm.report('head.pop_back'){head.pop_back}
+      bm.report('tail.pop_back'){tail.pop_back}
     end
   end
 end
