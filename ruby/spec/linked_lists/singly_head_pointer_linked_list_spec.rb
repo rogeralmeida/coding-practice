@@ -2,8 +2,9 @@
 
 require_relative '../../linked_lists/singly_head_pointer_linked_list'
 require_relative '../../linked_lists/singly_head_and_tail_pointer_linked_list'
+require_relative '../../linked_lists/doubly_linked_list'
 
-[SinglyHeadPointerLinkedList, SinglyHeadAndTailPointerLinkedList].each do |clazz|
+[SinglyHeadPointerLinkedList, SinglyHeadAndTailPointerLinkedList, DoublyLinkedList].each do |clazz|
   RSpec.describe "Linked list class #{clazz}" do
     before(:each) do
       @list = clazz.new
