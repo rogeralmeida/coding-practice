@@ -15,10 +15,10 @@ require 'benchmark'
         bm.report('Inserting a million items in head list') do
           10000.times { @list.push_back Random.rand(10000000) }
         end
-        bm.report('list.reverse'){ @list.reverse }
-        bm.report('list.push_back'){ @list.push_back(99) }
-        bm.report('list.pop_back'){ @list.pop_back }
-        bm.report('list.erase'){ @list.erase Random.rand(99) }
+        bm.report('list.reverse') { @list.reverse }
+        bm.report('list.push_back') { @list.push_back(99) }
+        bm.report('list.pop_back') { @list.pop_back }
+        bm.report('list.erase') { @list.erase Random.rand(99) }
       end
     end
   end
