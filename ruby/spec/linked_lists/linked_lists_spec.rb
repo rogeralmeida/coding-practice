@@ -115,5 +115,13 @@ require_relative '../../linked_lists/doubly_linked_list'
       expect(reversed.back).to eq(1)
       expect(reversed.value_at(1)).to eq(2)
     end
+
+    it 'should find a item based on a block' do
+      @list.push_back({a: 1, b: 2})
+      @list.push_back({a: 2, b: 3})
+      @list.push_back({a: 3, b: 4})
+      @list.push_back({a: 4, b: 5})
+      expect(@list.find { |item| item[:a] == 3 }).to eq({a: 3, b: 4})
+    end
   end
 end

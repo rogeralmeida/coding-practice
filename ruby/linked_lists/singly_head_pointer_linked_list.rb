@@ -15,8 +15,10 @@
 # reverse() - reverses the list
 # remove_value(value) - removes the first item in the list with this value
 require_relative './list_node'
+require_relative './findable'
 
 class SinglyHeadPointerLinkedList
+  include Findable
   attr_reader :size
 
   def initialize
