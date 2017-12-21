@@ -2,6 +2,8 @@ require_relative '../linked_lists/singly_head_pointer_linked_list'
 
 class ChainingHashTable
 
+  LARGE_PRIME_NUMBER = 15487469
+
   def initialize
     @array = Array.new(8) { SinglyHeadPointerLinkedList.new }
     @array_size = 8
@@ -50,7 +52,7 @@ class ChainingHashTable
   private
 
   def find_bucket key
-    bucket_index = key.hash % @array_size 
+    bucket_index = (LARGE_PRIME_NUMBER * key.hash) % @array_size 
     @array[bucket_index]
   end
 
