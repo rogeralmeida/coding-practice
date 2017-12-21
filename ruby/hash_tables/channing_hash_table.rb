@@ -6,7 +6,6 @@ class ChainingHashTable
 
   def initialize
     @array = Array.new(8) { SinglyHeadPointerLinkedList.new }
-    @array_size = 8
     @size = 0
   end
 
@@ -15,6 +14,9 @@ class ChainingHashTable
   end
 
   def put key, value
+    if @size > @array.size
+      double_table
+    end
     pair = find_pair key
     if pair.nil?
       bucket = find_bucket key
@@ -42,7 +44,7 @@ class ChainingHashTable
   end
 
   def delete key
-    bucket_index = key.hash % @array_size 
+    bucket_index = key.hash % @array.size
     bucket = @array[bucket_index]
     pair = bucket.find { |p| p[:key] == key }
     bucket.remove_value pair
@@ -52,12 +54,27 @@ class ChainingHashTable
   private
 
   def find_bucket key
-    bucket_index = (LARGE_PRIME_NUMBER * key.hash) % @array_size 
+    bucket_index = (LARGE_PRIME_NUMBER * key.hash) % @array.size
     @array[bucket_index]
   end
 
   def find_pair key
     bucket = find_bucket key
     bucket.find { |p| p[:key] == key }
+  end
+
+  def double_table
+    new_array = Array.new(@array.size * 2) { SinglyHeadPointerLinkedList.new }
+    new_array_size = new_array.size
+    @array.each do |bucket|
+      loop do
+        break if bucket.empty?
+        pair = bucket.pop_front
+        bucket_index = (LARGE_PRIME_NUMBER * pair[:key].hash) % new_array_size
+        new_bucket = new_array[bucket_index]
+        new_bucket.push_front pair
+      end
+    end
+    @array = new_array
   end
 end

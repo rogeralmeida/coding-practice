@@ -49,6 +49,7 @@ class SinglyHeadPointerLinkedList
   end
 
   def pop_front
+    raise "Cannot pop a empty list" if empty?
     value = @head.value
     @head = @head.next_node
     @size -= 1
