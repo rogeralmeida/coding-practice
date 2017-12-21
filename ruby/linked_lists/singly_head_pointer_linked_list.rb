@@ -116,7 +116,11 @@ class SinglyHeadPointerLinkedList
     node = @head
     loop do
       if node.value == value
-        previous_node.next_node = node.next_node
+        if !previous_node.nil?
+          previous_node.next_node = node.next_node
+        else
+          @head = nil
+        end
         @size -= 1
         break
       end
