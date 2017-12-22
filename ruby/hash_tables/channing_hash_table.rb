@@ -44,7 +44,7 @@ class ChainingHashTable
   end
 
   def delete key
-    bucket_index = key.hash % @array.size
+    bucket_index = (LARGE_PRIME_NUMBER * key.hash) % @array.size
     bucket = @array[bucket_index]
     pair = bucket.find { |p| p[:key] == key }
     bucket.remove_value pair
