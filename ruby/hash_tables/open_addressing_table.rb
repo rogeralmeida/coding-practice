@@ -75,8 +75,9 @@ class OpenAddressingTable
       break if item.nil? || item[:deleted]
       try = 1
       key = item[:key]
+      new_array_size = new_array.size
       loop do
-        address = (key.hash + try) % new_array.size
+        address = (key.hash + try) % new_array_size
         if new_array[address].nil?
           new_array[address] = item
           break
